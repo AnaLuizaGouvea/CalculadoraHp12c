@@ -84,10 +84,7 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(botaoCLick("0"));
 
         btnEnter.setOnClickListener((v) -> {
-            double valor = Double.valueOf(visor.getText().toString());
-            calculadora.setNumero(valor);
             calculadora.enter();
-            visor.setText("");
         });
 
         btnBackSpace.setOnClickListener((v) -> {
@@ -95,39 +92,28 @@ public class MainActivity extends AppCompatActivity {
             inicioSelecao = Math.max(inicioSelecao, 0);
             int finalSelecao = visor.getSelectionEnd();
             visor.getText().delete(inicioSelecao, finalSelecao);
+            atualizarNumero();
         });
 
-        //VERIFICAR MODOS , EXIBINDO E EDITANDO
         btnAdicao.setOnClickListener((v) -> {
-            double valorVisor = Double.valueOf(visor.getText().toString());
-            calculadora.setNumero(valorVisor);
             calculadora.soma();
-            String valor = String.valueOf(calculadora.getNumero());
-            visor.setText(valor);
+            atualizarVisor();
+
         });
 
         btnSubtracao.setOnClickListener((v) -> {
-            double valorVisor = Double.valueOf(visor.getText().toString());
-            calculadora.setNumero(valorVisor);
             calculadora.subtracao();
-            String valor = String.valueOf(calculadora.getNumero());
-            visor.setText(valor);
+            atualizarVisor();
         });
 
         btnMultiplicacao.setOnClickListener((v) -> {
-            double valorVisor = Double.valueOf(visor.getText().toString());
-            calculadora.setNumero(valorVisor);
             calculadora.multiplicacao();
-            String valor = String.valueOf(calculadora.getNumero());
-            visor.setText(valor);
+            atualizarVisor();
         });
 
         btnDivisao.setOnClickListener((v) -> {
-            double valorVisor = Double.valueOf(visor.getText().toString());
-            calculadora.setNumero(valorVisor);
             calculadora.divisao();
-            String valor = String.valueOf(calculadora.getNumero());
-            visor.setText(valor);
+            atualizarVisor();
         });
 
         btnClear.setOnClickListener((v) -> {
@@ -139,11 +125,24 @@ public class MainActivity extends AppCompatActivity {
 
     public View.OnClickListener botaoCLick(final String s) {
         return (v) -> {
-          int  inicioSelecao = visor.getSelectionStart();
-          int finalSelecao = visor.getSelectionEnd();
-          visor.getText().replace(inicioSelecao, finalSelecao, s);
+            if(calculadora.getModo() == Calculadora.MODO_EXIBINDO){
+                visor.setText("");
+            }
+            int  inicioSelecao = visor.getSelectionStart();
+            int finalSelecao = visor.getSelectionEnd();
+            visor.getText().replace(inicioSelecao, finalSelecao, s);
+            atualizarNumero();
         };
     }
 
+    public void atualizarNumero(){
+        String s = visor.getText().toString();
+        s = "".equals(s) ? "0" : s;
+        calculadora.setNumero(Double.valueOf(s));
+    }
 
+    public void atualizarVisor(){
+        double numero = calculadora.getNumero();
+        visor.setText(String.format("%.2f", numero));
+    }
 }

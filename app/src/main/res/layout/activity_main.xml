@@ -228,11 +228,69 @@
         android:id="@+id/visor"
         android:layout_width="358dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="number"
         android:textAlignment="textEnd"
-        app:layout_constraintBottom_toTopOf="@+id/btnOIto"
-        app:layout_constraintEnd_toEndOf="@+id/btnDivisao"
+        app:layout_constraintBottom_toTopOf="@+id/btnPv"
+        app:layout_constraintEnd_toEndOf="@+id/btnFV"
+        app:layout_constraintStart_toStartOf="@+id/btnN" />
+
+    <Button
+        android:id="@+id/btnN"
+        android:layout_width="56dp"
+        android:layout_height="44dp"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:minWidth="48dp"
+        android:text="n"
+        app:layout_constraintBottom_toBottomOf="@+id/bntI"
         app:layout_constraintStart_toStartOf="@+id/btnClear" />
+
+    <Button
+        android:id="@+id/bntI"
+        android:layout_width="56dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFC107"
+        android:minWidth="48dp"
+        android:text="i"
+        app:layout_constraintBottom_toTopOf="@+id/btnSete"
+        app:layout_constraintStart_toStartOf="@+id/btnSete" />
+
+    <Button
+        android:id="@+id/btnPv"
+        android:layout_width="60dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#FFC107"
+        android:minWidth="33dp"
+        android:text="PV"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bntI"
+        app:layout_constraintEnd_toEndOf="@+id/btnOIto"
+        app:layout_constraintStart_toStartOf="@+id/btnOIto" />
+
+    <Button
+        android:id="@+id/btnPmt"
+        android:layout_width="70dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#FFC107"
+        android:minWidth="33dp"
+        android:text="PMT"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPv"
+        app:layout_constraintEnd_toEndOf="@+id/btnNove"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnNove" />
+
+    <Button
+        android:id="@+id/btnFV"
+        android:layout_width="64dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#FFC107"
+        android:minWidth="33dp"
+        android:text="FV"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPmt"
+        app:layout_constraintStart_toStartOf="@+id/btnDivisao" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,14 +58,31 @@ public class CalculadoraTest {
     @Test
     public void ABC() {
         Calculadora calc = new Calculadora();
+        calc.setNumero(1);
+        calc.enter();
         calc.setNumero(2);
         calc.enter();
+        calc.setNumero(3);
+        calc.soma();
+        assertEquals(5.0, calc.getNumero());
+        calc.soma();
+        assertEquals(6.0, calc.getNumero());
+
+    }
+
+    @Test
+    public void ABCDivisao() {
+        Calculadora calc = new Calculadora();
         calc.setNumero(8);
         calc.enter();
-        calc.setNumero(10);
-        calc.multiplicacao();
-        calc.soma();
-        assertEquals(82.0, calc.getNumero());
+        calc.setNumero(16);
+        calc.enter();
+        calc.setNumero(4);
+        calc.divisao();
+        assertEquals(4.0, calc.getNumero());
+        calc.divisao();
+        assertEquals(2.0, calc.getNumero());
+
     }
 
 }

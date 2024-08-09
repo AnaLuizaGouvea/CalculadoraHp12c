@@ -19,6 +19,10 @@ public class Calculadora {
         operandos = new LinkedList<>();
     }
 
+    public Deque<Double> getOperandos() {
+        return operandos;
+    }
+
     public double getNumero() {
         return numero;
     }
@@ -32,12 +36,16 @@ public class Calculadora {
         return modo;
     }
 
+    public int setModo(int n){
+        this.modo = n;
+        return this.modo;
+    }
+
     public void enter(){
         if(modo == MODO_ERROR){
             modo = MODO_EXIBINDO;
         }
         if (modo == MODO_EDITANDO){
-
             operandos.push(numero);
             modo = MODO_EXIBINDO;
         }
@@ -45,7 +53,7 @@ public class Calculadora {
 
 
     public void executarOperacao(BiFunction<Double, Double, Double> operacao){
-        if(modo == MODO_EDITANDO){
+        if(modo == MODO_EDITANDO || modo == MODO_ERROR){
             enter();
         }
         double op1 = Optional.ofNullable(operandos.pollFirst()).orElse(0.0);
