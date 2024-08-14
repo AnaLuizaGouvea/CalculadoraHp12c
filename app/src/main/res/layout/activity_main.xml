@@ -264,7 +264,7 @@
         android:backgroundTint="#FFC107"
         android:minWidth="33dp"
         android:text="PV"
-        android:textSize="12sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/bntI"
         app:layout_constraintEnd_toEndOf="@+id/btnOIto"
         app:layout_constraintStart_toStartOf="@+id/btnOIto" />
@@ -276,7 +276,7 @@
         android:backgroundTint="#FFC107"
         android:minWidth="33dp"
         android:text="PMT"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnPv"
         app:layout_constraintEnd_toEndOf="@+id/btnNove"
         app:layout_constraintHorizontal_bias="0.0"
@@ -289,7 +289,7 @@
         android:backgroundTint="#FFC107"
         android:minWidth="33dp"
         android:text="FV"
-        android:textSize="12sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnPmt"
         app:layout_constraintStart_toStartOf="@+id/btnDivisao" />
 

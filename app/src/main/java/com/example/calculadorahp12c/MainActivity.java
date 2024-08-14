@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        calculadora = new Calculadora();
+        calculadora = new ViewModelProvider(this).get(Calculadora.class);
 
         btn1 = findViewById(R.id.btnUm);
         btn2 = findViewById(R.id.btnDois);

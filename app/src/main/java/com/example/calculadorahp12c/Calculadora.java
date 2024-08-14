@@ -1,11 +1,13 @@
 package com.example.calculadorahp12c;
 
+import androidx.lifecycle.ViewModel;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
-public class Calculadora {
+public class Calculadora extends ViewModel {
 
     public static final int MODO_EDITANDO = 0;
     public static final int MODO_EXIBINDO = 1;
