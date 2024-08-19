@@ -243,11 +243,11 @@
         android:backgroundTint="@android:color/holo_orange_light"
         android:minWidth="48dp"
         android:text="n"
-        app:layout_constraintBottom_toBottomOf="@+id/bntI"
+        app:layout_constraintBottom_toBottomOf="@+id/bntTaxa"
         app:layout_constraintStart_toStartOf="@+id/btnClear" />
 
     <Button
-        android:id="@+id/bntI"
+        android:id="@+id/bntTaxa"
         android:layout_width="56dp"
         android:layout_height="44dp"
         android:layout_marginBottom="16dp"
@@ -265,7 +265,7 @@
         android:minWidth="33dp"
         android:text="PV"
         android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/bntI"
+        app:layout_constraintBottom_toBottomOf="@+id/bntTaxa"
         app:layout_constraintEnd_toEndOf="@+id/btnOIto"
         app:layout_constraintStart_toStartOf="@+id/btnOIto" />
 

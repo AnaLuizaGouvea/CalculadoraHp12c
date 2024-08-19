@@ -85,4 +85,20 @@ public class CalculadoraTest {
 
     }
 
+    @Test
+    public void JurosCompostos(){
+        //caso da internet
+//        1300, apertar CHS e depois PV;
+//        1, apertar i;
+//        8 apertar n;
+//        depois disso, é só apertar a tecla FV e o resultado será mostrado na tela. Nesse caso será R$ 1407.71.
+
+        Calculadora calc = new Calculadora();
+        calc.setPv(1300.0);
+        calc.setiTaxa(1.0/100);
+        calc.setnPeriodo(8.0);
+        double valorFuturo = calc.calculAFV();
+        assertEquals(1407.71, valorFuturo, 0.01);
+    }
+
 }

@@ -16,6 +16,12 @@ public class Calculadora extends ViewModel {
     private Deque<Double> operandos;
     private int modo = MODO_EXIBINDO;
 
+    private double pv;
+    private double fv;
+    private double pmt;
+    private double iTaxa;
+    private double nPeriodo;
+
     public Calculadora() {
         numero = 0;
         operandos = new LinkedList<>();
@@ -53,6 +59,45 @@ public class Calculadora extends ViewModel {
         }
     }
 
+    public double getPv() {
+        return pv;
+    }
+
+    public void setPv(double pv) {
+        this.pv = pv;
+    }
+
+    public double getFv() {
+        return fv;
+    }
+
+    public void setFv(double fv) {
+        this.fv = fv;
+    }
+
+    public double getPmt() {
+        return pmt;
+    }
+
+    public void setPmt(double pmt) {
+        this.pmt = pmt;
+    }
+
+    public double getiTaxa() {
+        return iTaxa;
+    }
+
+    public void setiTaxa(double iTaxa) {
+        this.iTaxa = iTaxa;
+    }
+
+    public double getnPeriodo() {
+        return nPeriodo;
+    }
+
+    public void setnPeriodo(double nPeriodo) {
+        this.nPeriodo = nPeriodo;
+    }
 
     public void executarOperacao(BiFunction<Double, Double, Double> operacao){
         if(modo == MODO_EDITANDO || modo == MODO_ERROR){
@@ -87,4 +132,40 @@ public class Calculadora extends ViewModel {
         executarOperacao((op1, op2) -> op2 / op1);
     }
 
+    public double calculaPV() {
+        if (nPeriodo == 0) {
+            return fv;
+        }
+        return fv / Math.pow(1+iTaxa, nPeriodo);
+    }
+
+    public double calculAFV() {
+        if (nPeriodo == 0) {
+            return pv;
+        }
+        return pv * Math.pow(1+iTaxa, nPeriodo);
+    }
+
+    public double calculaPMT() {
+        if (nPeriodo == 0) {
+            return pv / nPeriodo;
+        }
+        return pv * iTaxa / (1 - Math.pow(1+iTaxa, -nPeriodo));
+    }
+
+    public double calculaTaxa() {
+        if (nPeriodo == 0) { //error
+            setModo(MODO_ERROR);
+            return 0.0;
+        }
+        return Math.pow(fv / pv, 1.0 / nPeriodo) - 1;
+    }
+
+    public double calcularPeriodo() {
+        if (iTaxa == 0) { //error
+            setModo(MODO_ERROR);
+            return 0.0;
+        }
+        return Math.log(fv / pv) / Math.log(1 + iTaxa);
+    }
 }
